@@ -1,0 +1,32 @@
+# Environment variables
+.env
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+
+# Test cache
+.pytest_cache/
+
+# Local caches and results (gitignored per project convention)
+cache/
+results/
+
+# Dataset directory
+data_fb15k237/
+
+# Build artifacts
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+
+# Ruff cache
+.ruff_cache/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
