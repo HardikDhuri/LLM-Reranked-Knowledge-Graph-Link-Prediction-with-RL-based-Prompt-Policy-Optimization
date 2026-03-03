@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kg-llm-rl-link-prediction"
+version = "0.1.0"
+description = "RL-Optimized LLM Reranking for Knowledge Graph Link Prediction"
+requires-python = ">=3.11"
+dependencies = [
+    "openai",
+    "requests",
+    "tqdm",
+    "pydantic",
+    "pydantic-settings",
+    "python-dotenv",
+    "pykeen",
+    "torch",
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "pyyaml",
+    "jinja2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "ruff",
+    "black",
+    "pre-commit",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+ignore = []
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]
