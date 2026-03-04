@@ -35,6 +35,9 @@ class Settings(BaseSettings):
         default=0.1, description="Cost penalty weight in RL reward"
     )
 
+    # Logging
+    log_level: str = Field(default="INFO", description="Logging level")
+
     model_config = {"env_file": ".env", "env_file_encoding": "utf-8", "extra": "ignore"}
 
     def ensure_dirs(self) -> None:
