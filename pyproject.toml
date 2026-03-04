@@ -46,3 +46,13 @@ ignore = []
 [tool.black]
 line-length = 88
 target-version = ["py311"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks integration tests",
+]
+addopts = "-v --tb=short"
