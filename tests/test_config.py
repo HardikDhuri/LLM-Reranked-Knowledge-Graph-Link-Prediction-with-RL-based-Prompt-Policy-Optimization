@@ -7,7 +7,6 @@ from pydantic import ValidationError
 
 from src.config import Settings, get_settings, print_config
 
-
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
