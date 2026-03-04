@@ -1,0 +1,76 @@
+templates:
+  minimal:
+    id: "minimal"
+    name: "Minimal (labels only)"
+    description: "Uses only entity labels, no descriptions. Short and cheap."
+    system: "You are a knowledge graph expert. Respond only in JSON."
+    user: |
+      Rate the plausibility of this knowledge graph triple on a scale from 0.0 to 1.0.
+
+      Head entity: {{ head_label }}
+      Relation: {{ relation }}
+      Tail entity: {{ tail_label }}
+
+      Reply in JSON: {"score": <float>, "reason": "<string>"}
+
+  with_descriptions:
+    id: "with_descriptions"
+    name: "With Descriptions"
+    description: "Includes entity labels and Wikidata descriptions for richer context."
+    system: "You are a knowledge graph expert. Respond only in JSON."
+    user: |
+      Rate the plausibility of this knowledge graph triple on a scale from 0.0 to 1.0.
+
+      Head entity: {{ head_label }}{% if head_description %} — {{ head_description }}{% endif %}
+      Relation: {{ relation }}
+      Tail entity: {{ tail_label }}{% if tail_description %} — {{ tail_description }}{% endif %}
+
+      Reply in JSON: {"score": <float>, "reason": "<string>"}
+
+  strict_rubric:
+    id: "strict_rubric"
+    name: "Strict Scoring Rubric"
+    description: "Provides a detailed rubric for scoring to improve calibration."
+    system: "You are a knowledge graph evaluation system. You must respond only in valid JSON."
+    user: |
+      Evaluate whether the following knowledge graph triple is factually correct.
+
+      Head: {{ head_label }}{% if head_description %} ({{ head_description }}){% endif %}
+      Relation: {{ relation }}
+      Tail: {{ tail_label }}{% if tail_description %} ({{ tail_description }}){% endif %}
+
+      Scoring rubric:
+      - 0.9–1.0: Almost certainly true, well-known fact
+      - 0.6–0.8: Likely true but not certain
+      - 0.3–0.5: Uncertain, could go either way
+      - 0.1–0.2: Likely false
+      - 0.0–0.1: Almost certainly false
+
+      Reply in JSON: {"score": <float>, "reason": "<string>"}
+
+  concise_cot:
+    id: "concise_cot"
+    name: "Concise Chain-of-Thought"
+    description: "Asks for brief reasoning before the score."
+    system: "You are a knowledge graph expert. Think step by step, then give a score. Respond in JSON."
+    user: |
+      Is the following triple plausible?
+
+      ({{ head_label }}, {{ relation }}, {{ tail_label }})
+
+      Think briefly, then reply in JSON:
+      {"reason": "<1-2 sentence reasoning>", "score": <float>}
+
+  binary_judge:
+    id: "binary_judge"
+    name: "Binary Judge"
+    description: "Asks for a binary true/false judgment plus confidence."
+    system: "You are a factual knowledge evaluator. Respond only in JSON."
+    user: |
+      Is this knowledge graph triple true or false?
+
+      Head: {{ head_label }}
+      Relation: {{ relation }}
+      Tail: {{ tail_label }}
+
+      Reply in JSON: {"judgment": "true"|"false", "confidence": <float>}
