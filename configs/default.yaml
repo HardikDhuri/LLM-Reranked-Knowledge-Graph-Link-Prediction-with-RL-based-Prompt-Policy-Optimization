@@ -1,0 +1,7 @@
+experiment:
+  template_id: minimal
+  embedding_epochs: 50
+  embedding_dim: 128
+  num_test_queries: 15
+  num_candidates: 25
+  random_seed: 42

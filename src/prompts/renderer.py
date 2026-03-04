@@ -105,3 +105,7 @@ class TemplateRegistry:
 
     def __len__(self) -> int:
         return len(self._templates)
+
+
+# Alias for convenience
+PromptManager = TemplateRegistry
