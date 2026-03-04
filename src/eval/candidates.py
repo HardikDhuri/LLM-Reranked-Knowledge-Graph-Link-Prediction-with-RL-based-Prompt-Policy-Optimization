@@ -49,7 +49,8 @@ def filter_candidates_tail(
     known_triples: set[tuple[str, str, str]],
 ) -> list[str]:
     """
-    Filtered setting: remove candidates that form a known-true triple (except the target true tail).
+    Filtered setting: remove candidates that form a known-true triple
+    (except the target true tail).
     This is the standard KG link prediction evaluation protocol.
     """
     filtered = []

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Callable
+from collections.abc import Callable
 
 from src.eval.candidates import filter_candidates_tail, generate_tail_candidates
 from src.eval.metrics import RankingResult, compute_all_metrics, format_metrics
@@ -24,7 +24,9 @@ def rank_tail_query(
     4) Rank and return result
     """
     h, r, true_t = query
-    cands = generate_tail_candidates(h, r, true_t, all_entities, num_candidates, seed=seed)
+    cands = generate_tail_candidates(
+        h, r, true_t, all_entities, num_candidates, seed=seed
+    )
     cands = filter_candidates_tail(h, r, cands, true_t, known_triples)
 
     scored = [(t, score_fn(h, r, t)) for t in cands]
