@@ -11,7 +11,9 @@ class Settings(BaseSettings):
     # LLM Gateway
     ai_gateway_api_key: str = Field(..., description="API key for AI Gateway")
     ai_gateway_base_url: str = Field(default="https://ai-gateway.uni-paderborn.de/v1")
-    ai_gateway_model: str = Field(default="", description="Model ID; auto-discovered if empty")
+    ai_gateway_model: str = Field(
+        default="", description="Model ID; auto-discovered if empty"
+    )
 
     # Wikidata SPARQL
     wikidata_sparql_url: str = Field(default="https://query.wikidata.org/sparql")
@@ -29,7 +31,9 @@ class Settings(BaseSettings):
     topk_show: int = Field(default=5)
 
     # RL
-    rl_reward_lambda: float = Field(default=0.1, description="Cost penalty weight in RL reward")
+    rl_reward_lambda: float = Field(
+        default=0.1, description="Cost penalty weight in RL reward"
+    )
 
     model_config = {"env_file": ".env", "env_file_encoding": "utf-8", "extra": "ignore"}
 
