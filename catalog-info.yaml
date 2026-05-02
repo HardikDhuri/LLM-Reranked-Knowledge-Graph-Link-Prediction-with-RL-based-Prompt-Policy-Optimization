@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: kg-llm-rl-link-prediction
+  description: RL-Optimized LLM Reranking for Knowledge Graph Link Prediction
+  tags:
+    - machine-learning
+    - knowledge-graph
+    - llm
+    - reinforcement-learning
+    - python
+  annotations:
+    backstage.io/source-location: url:https://github.com/HardikDhuri/LLM-Reranked-Knowledge-Graph-Link-Prediction-with-RL-based-Prompt-Policy-Optimization
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: library
+  lifecycle: experimental
+  owner: group:default/HardikDhuri # TODO: replace with a valid Backstage Group or User entity
