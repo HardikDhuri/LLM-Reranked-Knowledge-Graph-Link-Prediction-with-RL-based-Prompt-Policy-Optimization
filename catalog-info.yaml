@@ -10,7 +10,7 @@ metadata:
     - reinforcement-learning
     - python
   annotations:
-    backstage.io/techdocs-ref: dir:.
+    backstage.io/techdocs-ref: url:https://github.com/HardikDhuri/LLM-Reranked-Knowledge-Graph-Link-Prediction-with-RL-based-Prompt-Policy-Optimization/docs
     backstage.io/source-location: url:https://github.com/HardikDhuri/LLM-Reranked-Knowledge-Graph-Link-Prediction-with-RL-based-Prompt-Policy-Optimization
 spec:
   type: library
