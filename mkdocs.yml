@@ -1,0 +1,9 @@
+site_name: LLM-Reranked Knowledge Graph Link Prediction with RL-based Prompt Policy Optimization
+site_description: RL-Optimized LLM Reranking for Knowledge Graph Link Prediction
+docs_dir: docs
+nav:
+  - Architecture: ARCHITECTURE.md
+  - Cost Tracking: COST_TRACKING.md
+  - Evaluation: EVALUATION.md
+  - Prompts: PROMPTS.md
+  - RL Agents: RL_AGENTS.md
